@@ -139,16 +139,16 @@ def run_step():
 
 We then create a separate module that defines a number of requests each node can make over the network, and now we have a very basic framework for a robot-motor control loop, which looks something like this: 
 
-<img src="http://i.imgur.com/NjegxpQ.png" width='200' height='200'/>
+<img src="http://i.imgur.com/NjegxpQ.png" height='200'/>
 
 With four motors attached, it remains mostly the same.
 
-<img src="http://i.imgur.com/2qOdBZJ.png" width='400' height='400'/>
+<img src="http://i.imgur.com/2qOdBZJ.png" height='400'/>
 FIX THIS BEFORE SENDING IT OUT
 
 Great! We can work off of this. Next we need to look at how exactly the robot moves through our space -- and how we can pull the ropes to get to a specific point. Using some simple rules of triangles, we can rewrite our XY coordinates as pair of distances -- one from the upper left motor, and one from the upper right motor. 
 
-<img src="http://i.imgur.com/hBMwiha.jpg" width='400' height='400'/>
+<img src="http://i.imgur.com/hBMwiha.jpg" height='400'/>
 
 Here, we know that r<sub>1</sub> is defined by the length of the vector formed by x and y', and r<sub>2</sub> is defined by x' and y'. Shortly put,
 
