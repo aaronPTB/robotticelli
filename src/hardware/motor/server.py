@@ -17,6 +17,7 @@ app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
 celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
 celery.conf.update(app.config)
 
+controller = Control(Motor(*conf.MOTOR_PINS), Encoder(*conf.ENCODER_PINS))
 
 
 @celery.task
@@ -26,7 +27,6 @@ def async_run_step(encoder_steps, speed):
 @app.route("/", methods=['POST'])
 def run_step():
 
-    controller = Control(Motor(*conf.MOTOR_PINS), Encoder(*conf.ENCODER_PINS));
     ## The encoder will measure how much line has been pulled in,
     ## once it has stepped [encoder_steps] time, the program will
     ## message the robot RPi that this motor is ready for instructions
